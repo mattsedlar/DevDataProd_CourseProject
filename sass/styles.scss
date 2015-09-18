@@ -6,11 +6,18 @@ h1, h2, h3, label {
 label {
   font-size: 1.15em;
   text-transform: uppercase;
-  padding-bottom: 6px;
+  padding: 0 6px 6px 6px;
 }
 
 p, select { 
   font-family:'Merriweather', serif; 
   line-height: 1.5em;
+}
+
+.plot { 
+  max-width: 800px;
+  display:block;
+  text-align: center;
+  margin: 0 auto;
 }
 
