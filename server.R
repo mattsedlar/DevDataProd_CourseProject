@@ -1,13 +1,11 @@
 source("scripts/cleaning.R")
 
 library(ggplot2)
+library(googleVis)
 
 shinyServer(function(input,output){
 
-  output$plot <- renderPlot({
-    
-  })
-  output$prob <- renderTable({
+  output$plot <- renderGvis({
     
     state.df <- subset(tidydata, state == input$state)    
     income <- as.numeric(input$income)
@@ -21,11 +19,21 @@ shinyServer(function(input,output){
     sum.income <- sum(totalincomelevel.drovealone,totalincomelevel.carpool,totalincomelevel.publictrans)
     
     results.df <- data.frame(Method = c("Drive Alone*","Carpool","Public Transportation**"),
-                             Probability = c((totalincomelevel.drovealone/sum.income),
+                             Percentage = c((totalincomelevel.drovealone/sum.income),
                                              (totalincomelevel.carpool/sum.income),
                                              (totalincomelevel.publictrans/sum.income)))
     results.df
-    
+    bar <- gvisBarChart(results.df,
+                        options = list(chartArea="{width:'50%'}",
+                                       vAxes="[{textStyle:{fontSize:11,auraColor:'none'},
+                                       textPosition:'out'}]",
+                                       hAxes="[{title:'Percentage'}]",
+                                       legend="none"))
+    bar
+  })
+  
+  output$prob <- renderTable({
+  
   })
 
 })
