@@ -28,11 +28,20 @@ shinyServer(function(input,output){
                                        vAxes="[{textStyle:{fontSize:11,auraColor:'none'},
                                        textPosition:'out'}]",
                                        hAxes="[{title:'Percentage'}]",
-                                       legend="none"))
+                                       legend="none",
+                                       width='50%'))
     bar
   })
   
-  output$prob <- renderTable({
+  output$state <- renderGvis({
+    state.df <- subset(tidydata, state == input$state)
+    geo <- gvisGeoChart(state.df,
+                        'state',
+                        options=list(region="US",
+                                     displayMode="regions",
+                                     resolution="provinces",
+                                     width='50%'))
+    geo
   
   })
 

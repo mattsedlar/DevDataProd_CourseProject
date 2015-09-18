@@ -9,6 +9,7 @@
   <body>
     <main class="container">
     <h1 class="text-center">Methods of Commuting by Income, State</h1>
+    <p>Choose a state and income group to see commuting methods based on estimates from the 2014 American Community Survey.</p>
       <form role="form">
         <div class="form-group">
         <label>State:</label>
@@ -82,10 +83,13 @@
       </form>
 
     <!-- OUTPUT -->
-    <div id="prob" class="shiny-html-output"></div>
-    <div id="plot" class="shiny-html-output"></div>
+    <div class="row">
+      <div id="state" class="col-md-6 shiny-html-output"></div>
+      <div id="plot" class="col-md-6 shiny-html-output"></div>
+    </div>
+
     <div class="small">
-      <p>Data taken from the 2014 American Community Survey's "Means of Transportation to Work by Selected Characteristics for Workplace Geography" data set.</p>
+      <p>Data taken from the 2014 American Community Survey's "Means of Transportation to Work by Selected Characteristics for Workplace Geography" data set. Margins of error excluded.</p>
       <p>* Only includes cars, trucks, or vans.</p>
       <p>** Excludes taxis.</p>
     </div>

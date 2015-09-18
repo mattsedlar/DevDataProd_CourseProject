@@ -61,4 +61,3 @@ colnames(tidydata) <- gsub("\\.","",colnames(tidydata))
 tidydata[3:10] <- sapply(tidydata[3:10],function(x) as.numeric(x)/100)
 tidydata[12:19] <- sapply(tidydata[12:19],function(x) as.numeric(x)/100)
 tidydata[21:28] <- sapply(tidydata[21:28],function(x) as.numeric(x)/100)
-
