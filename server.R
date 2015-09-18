@@ -22,27 +22,26 @@ shinyServer(function(input,output){
                              Percentage = c((totalincomelevel.drovealone/sum.income),
                                              (totalincomelevel.carpool/sum.income),
                                              (totalincomelevel.publictrans/sum.income)))
-    results.df
-    bar <- gvisBarChart(results.df,
-                        options = list(chartArea="{width:'50%'}",
-                                       vAxes="[{textStyle:{fontSize:11,auraColor:'none'},
+
+    bar <- gvisColumnChart(results.df,
+                        options = list(hAxes="[{textStyle:{fontSize:11,auraColor:'none'},
                                        textPosition:'out'}]",
-                                       hAxes="[{title:'Percentage'}]",
+                                       vAxes="[{title:'Percentage'}]",
                                        legend="none",
-                                       width='50%'))
-    bar
-  })
-  
-  output$state <- renderGvis({
-    state.df <- subset(tidydata, state == input$state)
+                                       width=550))
     geo <- gvisGeoChart(state.df,
                         'state',
                         options=list(region="US",
                                      displayMode="regions",
                                      resolution="provinces",
-                                     width='50%'))
-    geo
+                                     width=250))
+    
+    bargeo <- gvisMerge(geo,bar,horizontal=TRUE)
+    bargeo
+  })
   
+  output$state <- renderGvis({
+
   })
 
 })
