@@ -14,10 +14,10 @@ p, select {
   line-height: 1.5em;
 }
 
-.plot { 
-  max-width: 800px;
-  display:block;
+.map, .plot { 
+  display: block;
   text-align: center;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
 }
-

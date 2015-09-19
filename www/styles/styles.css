@@ -11,10 +11,11 @@ p, select {
   font-family: 'Merriweather', serif;
   line-height: 1.5em; }
 
-.plot {
-  max-width: 800px;
+.map, .plot {
   display: block;
   text-align: center;
-  margin: 0 auto; }
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0; }
 
 /*# sourceMappingURL=styles.css.map */

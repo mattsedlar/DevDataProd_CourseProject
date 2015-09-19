@@ -6,11 +6,9 @@ unzip("data/ACS_14_1YR_S0804.zip",exdir="data")
 }
 
 # read in data
-data <- read.csv("data/ACS_14_1YR_S0804.csv")
-labels <- read.csv("data/ACS_14_1YR_S0804_ann.csv",skip=1,nrows = 1)
-
-# swap colnames for accurate descriptions
-colnames(data) <- colnames(labels)
+if(!exists("data")){
+  data <- read.csv("data/ACS_14_1YR_S0804.csv",skip=1)
+}
 
 tidydata <- data
 
