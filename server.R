@@ -57,7 +57,10 @@ shinyServer(function(input,output){
     p <- ggplot(results.df, aes(fill=Percentage, y=Percentage, x=Method)) + 
       geom_bar(position="dodge", stat="identity") +
       geom_errorbar(aes(ymin=Lower.Margin,ymax=Upper.Margin)) +
-      ggtitle("Methods of Commuting with Margin of Error as Error Bars")
+      ggtitle("Methods of Commuting with Margin of Error as Error Bars") +
+      theme(axis.title.y=element_text(vjust=1),
+            axis.title.x=element_text(vjust=0),
+            plot.title=element_text(vjust=0.85))
     print(p)
   }, height=350)  
 })
